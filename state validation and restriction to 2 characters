@@ -1,0 +1,42 @@
+ validateState(event:any) {   
+var states = [
+  {Id: "AL", Name: "ALABAMA"},{Id: "AK", Name: "ALASKA"},{Id: "AZ", Name: "ARIZONA"},   
+  {Id: "AR", Name: "ARKANSAS"},{Id: "CO", Name: "COLORADO"}, {Id: "CA", Name: "CALIFORNIA"},  
+  {Id: "CT", Name: "CONNECTICUT"},{Id: "DE", Name: "DELAWARE"},{Id: "FL", Name: "FLORIDA"},{Id: "GA", Name: "GEORGIA"},
+  {Id: "HI", Name: "HAWAII"},{Id: "ID", Name: "IDAHO"},{Id: "IL", Name: "ILLINOIS"},{Id: "IN", Name: "INDIANA"},
+  {Id: "IA", Name: "IOWA"},{Id: "KS", Name: "KANSAS"},{Id: "KY", Name: "KENTUCKY"},{Id: "LA", Name: "LOUISIANA"},
+  {Id: "ME", Name: "MAINE"},{Id: "MD", Name: "MARYLAND"},{Id: "MA", Name: "MASSACHESETTS"},{Id: "MI", Name: "MICHIGAN"},
+  {Id: "MN", Name: "MINNESOTA"},{Id: "MS", Name: "MISSISSIPPI"},{Id: "MO", Name: "MISSOURI"},{Id: "MT", Name: "MONTANA"},
+  {Id: "NE", Name: "NEBRASKA"},{Id: "NV", Name: "NEVADA"},{Id: "NH", Name: "NEW HAMPSHIRE"},{Id: "NJ", Name: "NEW JERSEY"},
+  {Id: "NM", Name: "NEW MEXICO"},{Id: "NY", Name: "NEW YORK"},{Id: "NC", Name: "NORTH CAROLINA"},{Id: "ND", Name: "NORTH DAKOTA"},
+  {Id: "OH", Name: "OHIO"},{Id: "OK", Name: "OKLAHAMA"},{Id: "OR", Name: "OREGON"},{Id: "PA", Name: "PENNSYLVANIA"},
+  {Id: "RI", Name: "RHODE ISLAND"},{Id: "SC", Name: "SOUTH CAROLINA"},{Id: "SD", Name: "SOUTH DAKOTA"},{Id: "TN", Name: "TENNESSEE"},
+  {Id: "TX", Name: "TEXAS"},{Id: "UT", Name: "UTAH"},{Id: "VT", Name: "VERMONT"},{Id: "VA", Name: "VIRGINIA"},
+  {Id: "WA", Name: "WASHINGTON"},{Id: "WV", Name: "WEST VIRGINIA"},{Id: "WI", Name: "WISCONSIN"},{Id: "WY", Name: "WYOMING"},
+  {Id: "AS", Name: "AMERICAN SAMOA"},{Id: "DC", Name: "DISTRICT OF COLUMBIA"},{Id: "FM", Name: "FEDERATED STATES OF MICRONESIA"},
+  {Id: "GU", Name: "GUAM"},{Id: "MH", Name: "MARSHALL ISLANDS"},{Id: "MP", Name: "NORTHERN MARIANA ISLANDS"},
+  {Id: "PW", Name: "PALAU"},{Id: "PR", Name: "PUERTO RICO"},{Id: "VI", Name: "VIRGIN ISLANDS"}
+];
+var stateIDFound;
+if(event.target.value.length==2)
+{
+  var sFound = states.find(x=>x.Id == event.target.value.toUpperCase());
+  if(sFound!=undefined)
+    stateIDFound = sFound.Id;
+  else
+  stateIDFound='';
+}
+else{
+  var sFound = states.find(x=>x.Name == event.target.value.toUpperCase());
+  if(sFound!=undefined)
+    stateIDFound = sFound.Id;
+  else
+  stateIDFound='';
+}
+event.target.value = stateIDFound;
+}
+
+
+html:
+
+<input type="text" class="form-control"  (blur)="validateState($event)">
