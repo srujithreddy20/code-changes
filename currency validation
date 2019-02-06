@@ -1,0 +1,18 @@
+ formatFee(name: string, object: NgModel, index?: number, dependentObject?: NgModel, isRequired?: boolean): void {
+    let feeValue = 0;
+   const intFee = object.value ? object.value.replace(/\$|,/g, '') : '';
+  //  const intFee = object.value;
+    console.log('intFee:'+intFee);
+    feeValue = isNaN(intFee) ? feeValue : intFee.trim();
+    if (index >= 0) {
+      //this.serviceA.LineItems[index][name].Value = this.cp.transform(feeValue, 'USD', '', '1.0-2');
+      const fieldName = (name === 'fee') ? 'totalFee' : 'cobTotal';
+      this.serviceA[fieldName].Value = this.cp.transform(this.addFees(name), 'USD', '', '1.0-2');
+      this.checkFieldStatus(fieldName, dependentObject);
+    } else {
+      this.serviceA[name].Value = this.cp.transform(feeValue, 'USD', '', '1.0-2');
+    }
+    this.checkFieldStatus(name, object, index, isRequired);
+  }
+  
+  
