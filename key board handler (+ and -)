@@ -1,0 +1,20 @@
+
+    keyboardHandler(event:any){    
+      
+        if(event.shiftKey==true && event.keyCode==107){          
+           this.onZoomIn();          
+        }
+        else{
+        if(event.shiftKey==true && event.keyCode==187){           
+           this.onZoomIn(); //here zoomin is the functionality to zoom image  
+        }
+    }
+     if(event.shiftKey==true && event.keyCode==109){     
+        this.onZoomOut(); 
+     }
+        else{
+          if (event.shiftKey==true && event.keyCode==189) {               
+                this.onZoomOut(); //zoom out image functionality                
+            }    
+        }               
+    }
