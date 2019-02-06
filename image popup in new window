@@ -1,0 +1,34 @@
+  onOpenNewWindow(event: any): void {
+        if (this.clickCount > 1 && this.newWindow && this.newWindow.hasOwnProperty('document')) {
+            this.newWindow.close();
+            this.newWindow = {} as Window;
+        }
+        if (event) {
+            event.nativeElement.style.maxWidth = 100 + '%';
+            const attr = 'top=0,left=0,height=650,width=700,scrollbars=yes,resizable=yes,location=no';
+            this.newWindow = window.open('', '_blank', attr);
+            if (this.newWindow) {
+                this.newWindow.document.title = 'Claim ID:' + this.claimDetails.claimId;
+                this.newWindow.document.body.innerHTML = event.nativeElement.outerHTML;
+                this.clickCount++;
+            }
+        }
+    }
+    
+    
+    //when you want to open the window after executing the submission ,asynchronous call
+    
+    
+    private setNewWindow(): void {
+        if (this.newWindow && this.newWindow.hasOwnProperty('document')) {
+            this.clickCount = 1;
+            if (!this.newWindow.closed) {
+                this.newWindow.close();
+                this.newWindow = {} as Window;
+                setTimeout(() => {
+                    const btnElement = document.getElementById('imgNewWindow') as HTMLElement;
+                    btnElement.click();
+                }, 3000);
+            }
+        }
+    }
