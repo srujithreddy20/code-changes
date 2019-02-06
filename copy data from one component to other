@@ -1,0 +1,41 @@
+//here we are copying from practice ofice component to vendor component
+sendtovendor(add:any,city:any,state:any,zip:any)
+  // sendtovendor()
+  {
+
+    let localVAddress: Vendor = new Vendor();
+    let localVCity: Vendor = new Vendor();
+    let localVState: Vendor = new Vendor();
+    let localVZip: Vendor = new Vendor();
+    
+
+    localVAddress.address = this.globalService.claimInformation.Vendor.address;
+    localVCity.city = this.globalService.claimInformation.Vendor.city;
+    localVState.state = this.globalService.claimInformation.Vendor.state;
+    localVZip.zipCode = this.globalService.claimInformation.Vendor.zipCode;
+
+    
+
+    let a: FieldInfo = new FieldInfo();
+  a.Value = add;
+  let c: FieldInfo = new FieldInfo();
+  c.Value = city;
+  let s: FieldInfo = new FieldInfo();
+  s.Value = state;
+  let z: FieldInfo = new FieldInfo();
+  z.Value = zip;
+  
+  // let s: FieldInfo = new FieldInfo();
+  // a.Value = add;
+
+    console.log('localPAddress.address:'+a.Value );
+    this.globalService.claimInformation.Vendor.address =a; 
+    this.globalService.claimInformation.Vendor.city =c;
+    this.globalService.claimInformation.Vendor.state =s;
+    this.globalService.claimInformation.Vendor.zipCode=z;
+    
+    add = '';
+    city='';
+    state='';
+    zip='';
+  }
