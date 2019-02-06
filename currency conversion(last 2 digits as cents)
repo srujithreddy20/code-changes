@@ -1,0 +1,5 @@
+  onBlurFomratFee(object: any, index: number, event: any): void {
+    let fee1 = object.value ? object.value : '';    //get the vcalue into fee1 this.component.filed.value
+    event.target.value = Number(fee1)/100;
+  }
+
