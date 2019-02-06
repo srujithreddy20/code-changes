@@ -1,0 +1,25 @@
+setFocusKeyup(event: any, index: number, clsname:string){
+    
+    var elements:any= document.getElementsByClassName(clsname);
+    // var elements:any=document.querySelectorAll(propertyName);
+
+        if(index>0){
+     switch (event.keyCode) {
+      case 38:
+       
+         elements[index-1].focus();      
+        break;
+      }
+    }
+  }
+  setFocusKeydown(event: any, index: number,clsname:string){
+   
+    //var elements:any= document.querySelectorAll(propertyName);
+    var elements:any=document.getElementsByClassName(clsname);
+             switch (event.keyCode) {
+           case 40:
+              elements[index+1].focus();
+          break;
+    }
+  }
+    
