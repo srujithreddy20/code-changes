@@ -1,0 +1,29 @@
+//dob validatio start
+  formatDate(event:any) {
+    
+    var dob1 = this.patient.dateOfBirth.Value;
+    // console.log('format date:'+event.value);
+   var separator ='/';
+    let date:Date = new Date(dob1);
+    // let date1:Date = new Date(event.value);
+    // console.log('date: '+date)
+    // console.log('date: '+date1)
+    var day = date.getDate().toString();
+    var month = (date.getMonth() + 1).toString();
+    var year = date.getFullYear();
+
+    if (day.length == 1)
+        day = "0" + day;
+
+    if (month.length == 1)
+        month = "0" + month;
+    // console.log('formatted date:'+`${month}${separator}${day}${separator}${year}`);
+    if(this.patient.dateOfBirth.Value !='')
+    {
+    this.patient.dateOfBirth.Value = `${month}${separator}${day}${separator}${year}`
+  }
+
+   // return `${month}${separator}${day}${separator}${year}`;
+}
+
+  //dob validation end
